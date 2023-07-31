@@ -1,6 +1,12 @@
 <script>
-	const string = `this string contains some <strong>HTML!!!</strong>`;
+	let count = 0;
+
+	const increment = () => {
+		count += 1;
+	};
 </script>
 
-<!-- eslint-disable-next-line svelte/no-at-html-tags -->
-<p>{@html string}</p>
+<button on:click={increment}>
+	Clicked {count}
+	{count === 1 ? 'time' : 'times'}
+</button>
