@@ -1,5 +1,5 @@
 <script>
-	const name = 'Svelte';
+	const src = './image.gif';
 </script>
 
-<h1>Hello {name.toUpperCase()}!</h1>
+<img {src} alt="A man dances." />
