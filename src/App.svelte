@@ -1,17 +1,19 @@
 <script>
-	let count = 0;
+	const numbers = [1, 2, 3, 4];
 
-	$: if (count >= 10) {
-		alert('count is dangerously high!');
-		count = 0;
-	}
+	const addNumber = () => {
+		// numbers.push(numbers.length + 1);
+		// numbers = numbers; // Sveltのリアクティビティは代入によってトリガーされるので、このような代入が必要になる
 
-	const handleClick = () => {
-		count += 1;
+		// 以下も上記と同じように動作する
+		// numbers = [...numbers, numbers.length + 1];
+
+		numbers[numbers.length] = numbers.length + 1;
 	};
+
+	$: sum = numbers.reduce((total, currentNumber) => total + currentNumber, 0);
 </script>
 
-<button on:click={handleClick}>
-	Clicked {count}
-	{count === 1 ? 'time' : 'times'}
-</button>
+<p>{numbers.join(' + ')} = {sum}</p>
+
+<button on:click={addNumber}> Add a number </button>
