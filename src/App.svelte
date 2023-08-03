@@ -1,16 +1,16 @@
 <script>
-	import PackageInfo from './PackageInfo.svelte';
+	let count = 0;
 
-	const pkg = {
-		name: 'svelte',
-		speed: 'blazing',
-		version: 4,
-		website: 'https://svelte.dev'
+	const increment = () => {
+		count += 1;
 	};
 </script>
 
-<!-- propsの書き忘れが起きる -->
-<!-- <PackageInfo name={pkg.name} speed={pkg.speed} website={pkg.website} />  -->
+<button on:click={increment}>
+	Clicked {count}
+	{count === 1 ? 'time' : 'times'}
+</button>
 
-<!-- スプレッド演算子を使うとpropsの書き忘れを防げる -->
-<PackageInfo {...pkg} />
+{#if count > 10}
+	<p>{count} is greater than 10</p>
+{/if}
