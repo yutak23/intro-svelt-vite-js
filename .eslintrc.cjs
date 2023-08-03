@@ -14,7 +14,8 @@ module.exports = {
 	overrides: [
 		{
 			files: ['*.svelte'],
-			parser: 'svelte-eslint-parser'
+			parser: 'svelte-eslint-parser',
+			rules: { 'import/prefer-default-export': 'off', 'import/no-mutable-exports': 'warn' }
 		}
 	],
 	rules: {
