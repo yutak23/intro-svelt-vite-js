@@ -1,19 +1,23 @@
 <script>
-	import { getRandomNumber } from './utils';
+	const m = { x: 0, y: 0 };
 
-	let promise = getRandomNumber();
-
-	function handleClick() {
-		promise = getRandomNumber();
+	function handleMove(event) {
+		m.x = event.clientX;
+		m.y = event.clientY;
 	}
 </script>
 
-<button on:click={handleClick}> generate random number </button>
+<div on:pointermove={handleMove}>
+	The pointer is at {m.x} x {m.y}
+</div>
 
-{#await promise}
-	<p>...waiting</p>
-{:then number}<!-- <- promiseのthne(number)の意味なので、objectなども引数で受け取れるのは同じ -->
-	<p>The number is {number}</p>
-{:catch error}
-	<p style="color: red">{error.message}</p>
-{/await}
+<style>
+	div {
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		padding: 1rem;
+	}
+</style>
