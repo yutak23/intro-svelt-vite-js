@@ -1,13 +1,12 @@
 <script>
-	const m = { x: 0, y: 0 };
-
-	function handleMove(event) {
-		m.x = event.clientX;
-		m.y = event.clientY;
-	}
+	let m = { x: 0, y: 0 };
 </script>
 
-<div on:pointermove={handleMove}>
+<div
+	on:pointermove={(e) => {
+		m = { x: e.clientX, y: e.clientY };
+	}}
+>
 	The pointer is at {m.x} x {m.y}
 </div>
 
