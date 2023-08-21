@@ -20,6 +20,9 @@ jobs:
       - name: install
         run: yarn install --frozen-lockfile
 
+      - name: format
+        run: yarn format
+
       - name: lint
         run: yarn lint
 
