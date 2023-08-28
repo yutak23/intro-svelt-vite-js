@@ -1,20 +1,21 @@
-// eslint-disable-next-line import/prefer-default-export
-export function typewriter(node, { speed = 1 }) {
-	const valid = node.childNodes.length === 1 && node.childNodes[0].nodeType === Node.TEXT_NODE;
+import { crossfade } from 'svelte/transition';
+import { quintOut } from 'svelte/easing';
 
-	if (!valid) {
-		throw new Error(`This transition only works on elements with a single text node child`);
+export const [send, receive] = crossfade({
+	duration: (d) => Math.sqrt(d * 200),
+
+	// eslint-disable-next-line no-unused-vars
+	fallback(node, params) {
+		const style = getComputedStyle(node);
+		const transform = style.transform === 'none' ? '' : style.transform;
+
+		return {
+			duration: 600,
+			easing: quintOut,
+			css: (t) => `
+				transform: ${transform} scale(${t});
+				opacity: ${t}
+			`
+		};
 	}
-
-	const text = node.textContent;
-	const duration = text.length / (speed * 0.01);
-
-	return {
-		duration,
-		tick: (t) => {
-			const i = Math.trunc(text.length * t);
-			// eslint-disable-next-line no-param-reassign
-			node.textContent = text.slice(0, i);
-		}
-	};
-}
+});
