@@ -1,9 +1,16 @@
 <script>
-	import { count } from './stores';
+	import { name, greeting } from './stores';
 </script>
 
-<h1>The count is {$count}</h1>
+<h1>{$greeting}</h1>
+<input bind:value={$name} />
 
-<button on:click={count.increment}>+</button>
-<button on:click={count.decrement}>-</button>
-<button on:click={count.reset}>reset</button>
+<button
+	on:click={() => {
+		$name += '!';
+		// 以下と上記は同じ意味
+		// name.set(($name += '!'));
+	}}
+>
+	Add exclamation mark!
+</button>
