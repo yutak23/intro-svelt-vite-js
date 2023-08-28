@@ -968,6 +968,11 @@ eastasianwidth@^0.2.0:
   resolved "https://registry.yarnpkg.com/eastasianwidth/-/eastasianwidth-0.2.0.tgz#696ce2ec0aa0e6ea93a397ffcf24aa7840c827cb"
   integrity sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==
 
+elizabot@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/elizabot/-/elizabot-0.0.3.tgz#1ed756c747c7924c3977e308f841acbef61abdaa"
+  integrity sha512-giwweEawiOHLS8eMPNtpLJaYxWZIHxtJcoq0NyvtEqVx2pxZ8XX1AXHHx84hUK3Scl8vk4U4lEatG54nsMZo+Q==
+
 emoji-regex@^8.0.0:
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-8.0.0.tgz#e818fd69ce5ccfcb404594f842963bf53164cc37"
@@ -2138,11 +2143,6 @@ make-fetch-happen@^11.0.0, make-fetch-happen@^11.0.1, make-fetch-happen@^11.0.3,
     promise-retry "^2.0.1"
     socks-proxy-agent "^7.0.0"
     ssri "^10.0.0"
-
-marked@^7.0.5:
-  version "7.0.5"
-  resolved "https://registry.yarnpkg.com/marked/-/marked-7.0.5.tgz#8a9e4e3afb93b58fe9ee7608e67cc154eb15d508"
-  integrity sha512-lwNAFTfXgqpt/XvK17a/8wY9/q6fcSPZT1aP6QW0u74VwaJF/Z9KbRcX23sWE4tODM+AolJNcUtErTkgOeFP/Q==
 
 mdn-data@2.0.30:
   version "2.0.30"
