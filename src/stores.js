@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-unresolved
-import { readable } from 'svelte/store';
+import { readable, derived } from 'svelte/store';
 
-const time = readable(new Date(), (set) => {
+export const time = readable(new Date(), (set) => {
 	const interval = setInterval(() => {
 		set(new Date());
 	}, 1000);
@@ -11,5 +11,6 @@ const time = readable(new Date(), (set) => {
 	};
 });
 
-// eslint-disable-next-line import/prefer-default-export
-export { time };
+const start = new Date();
+
+export const elapsed = derived(time, ($time) => Math.round(($time - start) / 1000));
