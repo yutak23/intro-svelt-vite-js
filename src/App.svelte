@@ -1,16 +1,30 @@
 <script>
-	import { name, greeting } from './stores';
+	// eslint-disable-next-line import/no-unresolved
+	import { tweened } from 'svelte/motion';
+	// eslint-disable-next-line import/no-unresolved
+	import { cubicOut } from 'svelte/easing';
+
+	const progress = tweened(0, {
+		duration: 400,
+		easing: cubicOut
+	});
 </script>
 
-<h1>{$greeting}</h1>
-<input bind:value={$name} />
+<progress value={$progress} />
 
-<button
-	on:click={() => {
-		$name += '!';
-		// 以下と上記は同じ意味
-		// name.set(($name += '!'));
-	}}
->
-	Add exclamation mark!
-</button>
+<button on:click={() => progress.set(0)}> 0% </button>
+
+<button on:click={() => progress.set(0.25)}> 25% </button>
+
+<button on:click={() => progress.set(0.5)}> 50% </button>
+
+<button on:click={() => progress.set(0.75)}> 75% </button>
+
+<button on:click={() => progress.set(1)}> 100% </button>
+
+<style>
+	progress {
+		display: block;
+		width: 100%;
+	}
+</style>
