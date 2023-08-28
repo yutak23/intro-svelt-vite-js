@@ -1,4 +1,5 @@
 <script>
+	import { flip } from 'svelte/animate';
 	import { send, receive } from './transition';
 
 	export let store;
@@ -7,7 +8,12 @@
 
 <ul class="todos">
 	{#each $store.filter((todo) => todo.done === done) as todo (todo.id)}
-		<li class:done in:receive={{ key: todo.id }} out:send={{ key: todo.id }}>
+		<li
+			class:done
+			in:receive={{ key: todo.id }}
+			out:send={{ key: todo.id }}
+			animate:flip={{ duration: 200 }}
+		>
 			<label>
 				<input
 					type="checkbox"
@@ -28,6 +34,10 @@
 		width: 100%;
 		height: 100%;
 		display: flex;
+	}
+
+	.done {
+		opacity: 0.5;
 	}
 
 	span {
