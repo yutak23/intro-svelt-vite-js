@@ -16,7 +16,11 @@ module.exports = {
 			files: ['*.svelte'],
 			parser: 'svelte-eslint-parser',
 			extends: ['plugin:svelte/recommended'],
-			rules: { 'import/prefer-default-export': 'off', 'import/no-mutable-exports': 'warn' }
+			rules: {
+				'import/prefer-default-export': 'off',
+				'import/no-mutable-exports': 'warn',
+				'import/no-unresolved': 'warn'
+			}
 		}
 	],
 	rules: {
